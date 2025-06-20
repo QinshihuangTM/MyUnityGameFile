@@ -19,6 +19,8 @@ public class StartOrQuit : MonoBehaviour
     
     //设置类
     public Button button_Setting;
+    public GameObject setting_Panel;
+    public Button Vol_Finish_Button;
 
     //更新类
     public Button button_VersionCheck;
@@ -32,6 +34,8 @@ public class StartOrQuit : MonoBehaviour
         button_QuitGame.onClick.AddListener(QuitGame);
         button_CleanData.onClick.AddListener(DeleteAllData);
         button_VersionCheck.onClick.AddListener(CheckVersion);
+        button_Setting.onClick.AddListener(OpenSettingPanel);
+        Vol_Finish_Button.onClick.AddListener(Vol_Close);
         versionPanel_CloseButton.onClick.AddListener(CloseVersionPanel);
         VersionText.text = "当前版本：beta 2.0";
 
@@ -83,4 +87,15 @@ public class StartOrQuit : MonoBehaviour
     {
         Version_Panel.SetActive(false);
     }
+
+    public void OpenSettingPanel()
+    {
+        setting_Panel.SetActive(true);
+    }
+
+    public void Vol_Close()
+    {
+        setting_Panel.SetActive(false);
+    }
+
 }

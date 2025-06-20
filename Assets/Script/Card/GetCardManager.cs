@@ -74,7 +74,10 @@ public class GetCardManager : MonoBehaviour
 
     public void OnClickgetCoinButton()
     {
-        CoinManager.Instance.AddCoins(100);
+        //beta2:
+        //CoinManager.Instance.AddCoins(100);
+        //beta3:
+        SceneManager.LoadScene(3);
     }
 
     public void DrawThreeCards()

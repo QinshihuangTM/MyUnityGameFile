@@ -12,9 +12,9 @@ public class CardDetailUIManager : MonoBehaviour
         Instance = this;
     }
 
-    public void ShowDetail(CardData data)
+    public void ShowDetail(OwnedCard card)
     {
-        detailUI.ShowDetail(data);
+        detailUI.ShowDetail(card);
     }
 
 }

@@ -10,26 +10,34 @@ public class CardDetailUI : MonoBehaviour
     public TextMeshProUGUI idText;
     public Image cardImage;
     public TextMeshProUGUI statsText;
-    //public Image borderImage;
+    public Button sellButton;
 
     public TextMeshProUGUI rarityText;
+    public TextMeshProUGUI haveAmountText;
 
     public GameObject detailPanel;
     public GameObject backpackPanel;
     public GameObject mainPanel;
 
-    public void ShowDetail(CardData data)
+    private OwnedCard currentCard;
+
+    public void ShowDetail(OwnedCard card)
     {
-        if (data == null)
+        if (card == null)
         {
             Debug.LogError("传入的 card 是 null！");
             return;
         }
 
+        currentCard = card;
+
         detailPanel.SetActive(true);
         backpackPanel.SetActive(false);
         mainPanel.SetActive(false);
 
+        var data = card.cardData;
+
+        haveAmountText.text = $"拥有：{card.quantity} 张";
 
         nameText.text = data.cardName;
         idText.text = data.cardID;
@@ -63,6 +71,9 @@ public class CardDetailUI : MonoBehaviour
             rarityText.text = data.rarityData.rarityType.ToString();
             rarityText.color = data.rarityData.cardColor;
         }
+
+        sellButton.gameObject.SetActive(card.quantity > 1);
+
     }
 
     public void Close()
@@ -71,4 +82,29 @@ public class CardDetailUI : MonoBehaviour
         backpackPanel.SetActive(true);
         mainPanel.SetActive(true);
     }
+
+    public void OnClickSellButton()
+    {
+        if (currentCard != null && currentCard.quantity > 1)
+        {
+            currentCard.quantity--;
+
+            int sellPrice = 50;
+
+            if(currentCard.cardData.rarityData != null)
+            {
+                sellPrice = currentCard.cardData.rarityData.sellPrice;
+            }
+
+            CoinManager.Instance.AddCoins(sellPrice);
+
+            CoinManager.Instance.UpdateUI();
+
+            BackpackManager.Instance.SaveData();
+            ShowDetail(currentCard); // 刷新显示
+            BackpackUIManager.Instance.RefreshUI(); // 刷新背包UI
+
+        }
+    }
+
 }

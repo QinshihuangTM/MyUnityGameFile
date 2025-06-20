@@ -1324,7 +1324,7 @@ AudioSource:
   m_GameObject: {fileID: 1121091527}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 70da533f1a82e9446b5e661317392aba, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9f2f4fb88abc04b4fa60f4e79b28e80e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1429,7 +1429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1129717154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2943,7 +2943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2091846665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3165,7 +3165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1505656067798104546, guid: 98983f3d7f0ac5d429351ffb65803a81, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000045776367
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 1505656067798104546, guid: 98983f3d7f0ac5d429351ffb65803a81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

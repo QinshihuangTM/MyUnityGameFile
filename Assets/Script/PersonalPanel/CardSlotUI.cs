@@ -11,16 +11,27 @@ public class CardSlotUI : MonoBehaviour
     public TextMeshProUGUI characterType;
     public TextMeshProUGUI cardLevel;
 
-    private CardData myData;
+    private OwnedCard ownedCard;
 
-    public void Set(CardData data, int quantity)
+    public void Set(OwnedCard card)
     {
-        myData = data;
+        ownedCard = card;
+        CardData data = card.cardData;
+
         cardImage.sprite = data.cardImage;
         nameText.text = data.cardName;
         characterType.text = $"{data.characterType}";
-        quantityText.text = $"×{quantity}";
-        cardID.text = $"ID：{data.cardID}";
+        quantityText.text = $"×{card.quantity}";
+
+        if(data.cardID != null)
+        {
+            cardID.text = $"ID：{data.cardID}";
+        }
+        else
+        {
+            cardID.text = "ID 未知";
+        }
+
 
         if (data.rarityData != null)
         {
@@ -36,7 +47,7 @@ public class CardSlotUI : MonoBehaviour
 
     public void OnClickShowDetail()
     {
-        CardDetailUIManager.Instance.ShowDetail(myData);
+        CardDetailUIManager.Instance.ShowDetail(ownedCard);
     }
 
 }

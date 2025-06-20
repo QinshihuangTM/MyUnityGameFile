@@ -15,3 +15,4 @@ MonoBehaviour:
   rarityType: 5
   dropRate: 0.02
   cardColor: {r: 1, g: 0.98252964, b: 0, a: 1}
+  sellPrice: 5000

@@ -20,10 +20,4 @@ public class ButtonFunction_GameStartPanel : MonoBehaviour
         gameObject.SetActive(false);
         StorePanel.SetActive(true);
     }
-
-    public void ShowGetCoinInterface()
-    {
-
-    }
-
 }

@@ -21,5 +21,6 @@ public class RarityData : ScriptableObject
     public float dropRate;
 
     public Color cardColor;
-    //public AudioClip unlockSound;
+
+    public int sellPrice;
 }

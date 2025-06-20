@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class BackpackUIManager : MonoBehaviour
 {
+    public static BackpackUIManager Instance;
+
     public GameObject backpackPanel; // 指向 MyCardBp
     public GameObject cardSlotPrefab;
     public Transform contentParent;
+
+    private void Awake()
+    {
+        if(Instance != null && Instance!= this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     public void ToggleBackpack()
     {
@@ -37,7 +49,7 @@ public class BackpackUIManager : MonoBehaviour
         {
             //Debug.Log("展示卡牌：" + card.cardData.cardName);
             GameObject go = Instantiate(cardSlotPrefab, contentParent);
-            go.GetComponent<CardSlotUI>().Set(card.cardData, card.quantity);
+            go.GetComponent<CardSlotUI>().Set(card);
         }
     }
 
